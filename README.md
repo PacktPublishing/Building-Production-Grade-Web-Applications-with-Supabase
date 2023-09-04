@@ -1,2 +1,2 @@
-# NextJS-and-Supabase
-NextJS and Supabase, published by Packt
+# Crafting Production-Ready Web Apps Using Supabase
+Crafting Production-Ready Web Apps Using Supabase, published by Packt
