@@ -1,5 +1,4 @@
 import { createServerClient } from "@supabase/ssr";
-import { deleteCookie, getCookie, setCookie } from "cookies-next";
 
 export const getSupabaseReqResClient = ({ req, res }) => {
   return createServerClient(
@@ -7,10 +6,14 @@ export const getSupabaseReqResClient = ({ req, res }) => {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
       cookies: {
-        get: (name) => getCookie(name, { req, res }),
-        set: (name, value, options) =>
-          setCookie(name, value, { req, res, ...options }),
-        remove: (name, options) => deleteCookie(name, { req, res, ...options }),
+        getAll: () => {
+          return req.cookies.getAll();
+        },
+        setAll: (cookies) => {
+          cookies.forEach(({ name, value, options }) => {
+            res.cookies.set(name, value, options);
+          });
+        },
       },
     }
   );
