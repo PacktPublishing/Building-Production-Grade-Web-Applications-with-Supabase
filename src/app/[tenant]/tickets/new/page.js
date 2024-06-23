@@ -49,13 +49,12 @@ export default function CreateTicket({ params }) {
                   alert("Could not create ticket");
                   console.error(error);
                 } else {
-                  console.log("NOW!!!");
                   router.push(urlPath(`/tickets/details/${data.id}`, tenant));
                 }
               });
           } else {
             alert(
-              "A title must have at least 5 chars and a description must at least contain 10",
+              "A title must have at least 5 chars and a description must at least contain 10"
             );
           }
         }}
