@@ -8,6 +8,6 @@ export const getSupabaseAdminClient = () => {
       auth: {
         persistSession: false,
       },
-    },
+    }
   );
 };
