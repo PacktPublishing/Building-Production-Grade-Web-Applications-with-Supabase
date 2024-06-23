@@ -1,6 +1,8 @@
 # A string used to distinguish different Supabase projects on the same host. Defaults to the
 # working directory name when running `supabase init`.
-project_id = "Crafting-Production-Ready-Web-Apps-Using-Supabase"
+project_id = "supabase_book"
+
+
 
 [api]
 enabled = true
