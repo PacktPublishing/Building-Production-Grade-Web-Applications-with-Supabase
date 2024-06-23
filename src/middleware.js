@@ -39,9 +39,8 @@ export async function middleware(req) {
     }
   }
 
-  // console.log("@rewrite", `/${tenant}${applicationPath}${req.nextUrl.search}`);
   return NextResponse.rewrite(
-    new URL(`/${tenant}${applicationPath}${req.nextUrl.search}`, req.url),
+    new URL(`/${tenant}${applicationPath}${req.nextUrl.search}`, req.url)
   );
 }
 
