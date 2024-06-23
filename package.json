@@ -10,24 +10,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.0.10",
-    "@supabase/supabase-js": "^2.33.2",
+    "@supabase/ssr": "^0.4.0-rc.5",
+    "@supabase/supabase-js": "^2.43.5",
     "@tabler/icons-react": "^2.44.0",
-    "cookies-next": "^4.0.0",
     "eslint": "8.48.0",
     "eslint-config-next": "^14.2.4",
+    "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.4",
     "sass": "^1.66.1"
   },
   "devDependencies": {
-    "supabase": "^1.178.2",
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "eslint-config-next": "14.2.4",
+    "supabase": "^1.178.2",
+    "typescript": "^5"
   }
 }
