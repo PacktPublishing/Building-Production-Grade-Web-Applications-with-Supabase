@@ -127,3 +127,6 @@ with check (rls_helpers.has_tenant_access(tenant));
 
 
 CREATE TRIGGER tr_comments_set_tenant_id BEFORE INSERT OR UPDATE ON public.comments FOR EACH ROW EXECUTE FUNCTION derive_tenant_from_ticket();
+
+-- enabling realtime
+ALTER publication "supabase_realtime" ADD TABLE only "public"."comments";
