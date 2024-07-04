@@ -1,4 +1,5 @@
 import { createServerClient } from "@supabase/ssr";
+import { NextResponse } from "next/server";
 
 export const getSupabaseReqResClient = ({ request }) => {
   let response = {
