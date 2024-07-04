@@ -22,7 +22,7 @@ const PageWithServerClient = ({ buckets }) => {
 export default PageWithServerClient;
 
 export const getServerSideProps = async ({ req, res }) => {
-  const supabase = getSupabaseReqResClient({ req, res });
+  const { supabase } = getSupabaseReqResClient({ request: req, response: res });
   const bucketsTestCall = await supabase.storage.listBuckets();
 
   return {
