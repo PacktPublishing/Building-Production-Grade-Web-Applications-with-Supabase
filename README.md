@@ -1,2 +1,2 @@
-# Crafting Production-Ready Web Apps Using Supabase
-Crafting Production-Ready Web Apps Using Supabase, published by Packt
+# Building Production-Grade Web Applications with Supabase
+Building Production-Grade Web Applications with Supabase, published by Packt
