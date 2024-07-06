@@ -32,7 +32,7 @@ export async function middleware(req) {
       return NextResponse.redirect(buildUrl("/", tenant, req));
       // return NextResponse.redirect(new URL(`/${tenant}/`, req.url));
     } else if (!sessionUser.app_metadata.tenants?.includes(tenant)) {
-      return NextResponse.error();
+      return NextResponse.rewrite(new URL("/not-found", req.url));
     }
   } else if (applicationPath === "/") {
     if (sessionUser) {
