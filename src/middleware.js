@@ -5,3 +5,7 @@ export async function middleware(request) {
 
   return response.value;
 }
+
+export const config = {
+  matcher: ["/((?!.*\\.).*)"],
+};
