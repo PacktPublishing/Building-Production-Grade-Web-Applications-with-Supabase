@@ -17,10 +17,12 @@ export const getSupabaseCookiesUtilClient = () => {
         getAll() {
           return cookieStore.getAll();
         },
-        setAll(cookies) {
-          cookies.forEach(({ name, value, options }) => {
-            cookieStore.set(name, value, options);
-          });
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) => {
+              cookieStore.set(name, value, options);
+            });
+          } catch {}
         },
       },
     },
