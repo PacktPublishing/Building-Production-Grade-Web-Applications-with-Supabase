@@ -2,20 +2,16 @@ import { NextResponse } from "next/server";
 import { getSupabaseReqResClient } from "./supabase-utils/reqResClient";
 
 export async function middleware(req) {
-  const res = NextResponse.next();
-
-  const supabase = getSupabaseReqResClient({ req, res });
+  const { supabase, response } = getSupabaseReqResClient({ request: req });
   const session = await supabase.auth.getSession();
 
   const requestedPath = req.nextUrl.pathname;
   const sessionUser = session.data?.session?.user;
 
+  console.log("requestedPath", requestedPath);
+
   if (requestedPath.startsWith("/tickets")) {
     if (!sessionUser) {
-      // TODO: make sure the sessionUser will contain app_metadata containing
-      // the host SLUG (not domain because domain can change!)
-      // and then we can CHEAPLY do an insecure match here for the redirection
-
       return NextResponse.redirect(new URL("/", req.url));
     }
   } else if (requestedPath === "/") {
@@ -24,7 +20,7 @@ export async function middleware(req) {
     }
   }
 
-  return res;
+  return response.value;
 }
 
 export const config = {
