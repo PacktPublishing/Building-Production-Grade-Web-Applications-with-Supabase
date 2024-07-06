@@ -1,14 +1,18 @@
 import { createServerClient, serializeCookieHeader } from "@supabase/ssr";
 import { NextResponse } from "next/server";
 
-export const getSupabaseReqResClient = ({ request, response }) => {
-  let _response = {
-    value: response ?? NextResponse.next({ request: request }),
+export const getSupabaseReqResClient = ({
+  request,
+  response: responseInput,
+}) => {
+  let response = {
+    value: responseInput ?? NextResponse.next({ request: request }),
   };
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+
     {
       cookies: {
         getAll() {
@@ -38,7 +42,7 @@ export const getSupabaseReqResClient = ({ request, response }) => {
             });
           } else {
             // pages router / not middleware
-            response.setHeader(
+            responseInput.setHeader(
               "Set-Cookie",
               cookiesToSet.map(({ name, value, options }) =>
                 serializeCookieHeader(name, value, options)
@@ -50,5 +54,5 @@ export const getSupabaseReqResClient = ({ request, response }) => {
     }
   );
 
-  return { supabase, response: _response };
+  return { supabase, response };
 };
