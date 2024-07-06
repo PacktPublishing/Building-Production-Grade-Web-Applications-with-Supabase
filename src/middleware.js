@@ -4,9 +4,7 @@ import { TENANT_MAP } from "./tenant-map";
 import { buildUrl, getHostnameAndPort } from "./utils/url-helpers";
 
 export async function middleware(req) {
-  const res = NextResponse.next();
-
-  const supabase = getSupabaseReqResClient({ req, res });
+  const { supabase } = getSupabaseReqResClient({ request: req });
   const session = await supabase.auth.getSession();
 
   const [hostname] = getHostnameAndPort(req);
@@ -18,6 +16,7 @@ export async function middleware(req) {
   const requestedPath = req.nextUrl.pathname;
   const sessionUser = session.data?.session?.user;
 
+  // old way of parsing tenant from path
   // const [tenant, ...restOfPath] = requestedPath.substr(1).split("/");
   // const applicationPath = "/" + restOfPath.join("/");
 
@@ -25,7 +24,7 @@ export async function middleware(req) {
   const applicationPath = requestedPath;
 
   if (!/[a-z0-9-_]+/.test(tenant)) {
-    return NextResponse.error();
+    return NextResponse.rewrite(new URL("/not-found", req.url));
   }
 
   if (applicationPath.startsWith("/tickets")) {
@@ -43,7 +42,7 @@ export async function middleware(req) {
   }
 
   return NextResponse.rewrite(
-    new URL(`/${tenant}${applicationPath}${req.nextUrl.search}`, req.url),
+    new URL(`/${tenant}${applicationPath}${req.nextUrl.search}`, req.url)
   );
 }
 
