@@ -2,9 +2,7 @@ import { NextResponse } from "next/server";
 import { getSupabaseReqResClient } from "./supabase-utils/reqResClient";
 
 export async function middleware(req) {
-  const res = NextResponse.next();
-
-  const supabase = getSupabaseReqResClient({ req, res });
+  const { supabase, response } = getSupabaseReqResClient({ request: req });
   const session = await supabase.auth.getSession();
 
   const requestedPath = req.nextUrl.pathname;
@@ -14,7 +12,7 @@ export async function middleware(req) {
   const applicationPath = "/" + restOfPath.join("/");
 
   if (!/[a-z0-9-_]+/.test(tenant)) {
-    return NextResponse.error();
+    return NextResponse.rewrite(new URL("/not-found", req.url));
   }
 
   if (applicationPath.startsWith("/tickets")) {
@@ -27,7 +25,7 @@ export async function middleware(req) {
     }
   }
 
-  return res;
+  return response.value;
 }
 
 export const config = {
