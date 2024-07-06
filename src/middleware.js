@@ -10,7 +10,7 @@ export async function middleware(req) {
   const [hostname] = getHostnameAndPort(req);
 
   if (hostname in TENANT_MAP === false) {
-    return NextResponse.error();
+    return NextResponse.rewrite(new URL("/not-found", req.url));
   }
 
   const requestedPath = req.nextUrl.pathname;
