@@ -13,8 +13,6 @@
     "@supabase/ssr": "^0.4.0",
     "@supabase/supabase-js": "^2.43.5",
     "@tabler/icons-react": "^2.44.0",
-    "eslint": "8.48.0",
-    "eslint-config-next": "^14.2.4",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
@@ -24,7 +22,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "8.48.0",
     "eslint-config-next": "14.2.4",
     "supabase": "^1.178.2",
     "typescript": "^5"
