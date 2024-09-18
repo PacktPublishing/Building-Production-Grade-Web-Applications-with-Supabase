@@ -59,5 +59,13 @@ With the following software and hardware list you can run all code files present
 
 * Full Stack Development with Spring Boot 3 and React - Fourth Edition [[Packt]](https://www.packtpub.com/en-us/product/full-stack-development-with-spring-boot-3-and-react-9781805122463) [[Amazon]](https://www.amazon.com/dp/1805122460)
 
+## Errata
+* Page 39, there's a missing opening curly bracket right after second arrow function arrow, here's how the code snippet should look like:
+  ```
+  supabase.storage.listBuckets().then((result) => {
+     console.log("Bucket List", result);
+  });
+  ```
+
 ## Get to Know the Author
 **David Lorenz** is a web software architect and lecturer who began programming at age 11. Before completing university in 2014, he had built a CRM system that automated an entire company and worked with numerous agencies through his own company. In 2015, he secured his first employment as a senior web developer, where he played a pioneering role in using cutting-edge technology and was an early adopter of progressive web apps. In 2017, he became the leading frontend architect and team lead for one of the largest projects at Mercedes-Benz.io, involving massive-scale architecture. Today, David provides valuable insights and guidance to clients across various industries, using his extensive experience and exceptional problem-solving abilities.
