@@ -60,7 +60,7 @@ With the following software and hardware list you can run all code files present
 * Full Stack Development with Spring Boot 3 and React - Fourth Edition [[Packt]](https://www.packtpub.com/en-us/product/full-stack-development-with-spring-boot-3-and-react-9781805122463) [[Amazon]](https://www.amazon.com/dp/1805122460)
 
 ## Errata
-* Page 39, there's a missing opening curly bracket right after second arrow function arrow, here's how the code snippet should look like:
+* Page 39, there's a missing opening curly bracket right after second function arrow, here's how the code snippet should look like:
   ```
   supabase.storage.listBuckets().then((result) => {
      console.log("Bucket List", result);
