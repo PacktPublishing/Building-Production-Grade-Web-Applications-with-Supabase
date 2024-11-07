@@ -66,6 +66,10 @@ With the following software and hardware list you can run all code files present
      console.log("Bucket List", result);
   });
   ```
+* Page 171, Under the section _Fetching tenant data with the restrictive Supabase client_, there is a duplicated paragraph that may cause confusion.
+
+	**Current Text (duplicated content)**: _The paragraph starting with “As we can fetch data for that tenant from the database right in the TenantName component with the tenant ID...” is redundant_
+
 
 ## Get to Know the Author
 **David Lorenz** is a web software architect and lecturer who began programming at age 11. Before completing university in 2014, he had built a CRM system that automated an entire company and worked with numerous agencies through his own company. In 2015, he secured his first employment as a senior web developer, where he played a pioneering role in using cutting-edge technology and was an early adopter of progressive web apps. In 2017, he became the leading frontend architect and team lead for one of the largest projects at Mercedes-Benz.io, involving massive-scale architecture. Today, David provides valuable insights and guidance to clients across various industries, using his extensive experience and exceptional problem-solving abilities.
